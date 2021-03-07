@@ -1,0 +1,421 @@
+@import "./_variable";
+
+//ブレークポイント
+$breakpoints: (
+    "sm": 'screen and (max-width: 767px)',
+    "md": 'screen and (min-width: 768px)',
+    // "sp": "(max-width: 767px)",
+	// "tab-only": "(min-width: 768px) and (max-width: #{$layout-width-inner + $padding-pc * 2 - 1px})",
+	// "tab": "(max-width: #{$layout-width-inner + $padding-pc * 2 - 1px})",
+	// "pc": "(min-width: #{$layout-width-inner})",
+) !default;
+
+//メディアクエリー
+@mixin mq($breakpoint: sm) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+
+/*=============================================================================================
+# colors
+============================================================================================= */  
+$color-main: #333; // ベース色
+// $color-active: #e81919; // アクティブ色
+$color-background-base: #fff; // 背景色
+$font-color-base: #333; // テキスト色
+
+
+/*=============================================================================================
+# common - 全体に共通するスタイル
+============================================================================================= */  
+@include mq('sm') {
+    .is-pc {
+        display: none;
+    }
+}
+
+@include mq('md') {
+    .is-sp {
+        display: none;
+    }
+}
+
+
+
+
+
+/**/
+html {
+    height: 100%;
+    margin: 0;
+}
+body {
+    // font-family: "Yu Gothic";
+//   font-family: $font-family-lato;
+    height: 100%;
+    margin: 0;
+    font-size: $font-size-base;
+    font-family: $font-family-default;
+    // font-family: "futura-pt-condensed";
+    // box-sizing:border-box
+    background-image: url(../img/背景リピート.png);
+    @include mq('sm') {
+        max-width: 375px;
+    }    
+}
+
+img {
+    max-width: 100%; //ブラウザのサイズを小さくしても対応して画像も小さくしてくれる (画像のレスポンシブ対応)
+}
+
+
+.inner {
+    width: $layout-width-inner;
+    // max-width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    // padding: 0 40px;
+    height: inherit;
+    // box-sizing: content-box;
+    
+    @include mq('sm') {
+        width: 375px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    // padding: 0 4%;
+
+//   @include mq('tab') {
+//       // width: 100%;
+//     //   padding-left: $padding-tab;
+//     //   padding-right: $padding-tab;
+//   }
+
+//   @include mq('sp') {
+    // width: 100%;
+    // padding-left: $padding-sp;
+    // padding-right: $padding-sp;
+    //   }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+//common
+.section {
+    padding-top: 62.5px;
+    color: white;
+    @include mq('sm') {
+        padding-top: 20px;
+    }
+}
+
+$section__title__lh: 66px / $font-size-title;
+.section__title {
+    position: relative;
+    text-align: center;
+    // font: normal normal 600 40px/68px $font-family-default;
+    // font: normal normal normal 40px/68px $font-family-title-english;
+    // font-size: $font-size-title;
+    font-size: 43px;
+    font-family: $font-family-title-english; //font-sizeが小さくなるから一旦外し
+    line-height: $section__title__lh;
+    // letter-spacing: 10px; //カンプでは0だが調整の為、設定
+    color: #301F1B;
+    height: 57px;
+
+    
+
+    @include mq('sm') {
+        // font: normal normal 600 30px/51px $font-family-default;
+    }
+}
+.section__title__white {
+    @extend .section__title;
+    color: #fff;
+}
+
+
+
+
+// btn
+.btn {
+    position: relative;
+    // top: 30px;
+    // text-align: center;
+
+    &-inline {
+        display: inline-block;
+        
+    }
+}
+
+.btn__harf {
+    top: 30px;
+
+    @include mq('sm') {
+        top: 20px;
+    }
+}
+.btn__news__small {
+    top: -20px;
+}
+
+
+.btn__details {
+    position: relative;
+    // position: flex;
+    background-color: $color-background-red;
+    display: inline-block;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    font-size: $font-size-small;
+    // top: 100px;
+    left: 73%;
+
+    @include mq('sm') {
+        left: 56%;
+        width: 148px;
+        height: 40px;
+    }
+    
+    a {
+        color: #fff;
+
+        @include mq('sm') {
+            padding-left: 2px;
+            padding-right: 2px;
+            font-size: $font-size-small - 2px;
+        }
+    }
+
+}
+.btn__details__small {
+    @extend .btn__details;
+    width: 120px;
+    height: 40px;
+    left: 42.5%;
+    // padding: auto;
+
+    @include mq('sm') {
+        top: 300px;
+        left: -12.5%
+    }
+    
+    &__news {
+        top: 0;
+        left: 0
+    }
+
+    &__cast {
+        @extend .btn__details;
+        width: 120px;
+        height: 40px;
+        left: 42.5%;
+        
+        @include mq('sm') {
+            left: 32.5%;
+            top: -24px;
+            
+        }
+    }
+}
+
+.btn__details__middle {
+    @extend .btn__details;
+    width: 150px;
+    height: 40px;
+    font-size: $font-size-ex-small;
+}
+
+.btn__details__middle__story {
+    @extend .btn__details;
+    width: 150px;
+    height: 40px;
+    font-size: $font-size-ex-small;
+    left: 81%;
+}
+
+.btn__on {
+    @include mq('md') {
+        display: none;
+    }
+}
+
+.btn__off {
+    @include mq('sm') {
+        display: none;
+    }
+}
+
+.btn__comments {
+    @include mq('sm') {
+        // top: 40px;
+    }
+}
+
+//パンくずリスト
+.breadcrumb {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    top: 30.5px;
+    // left: 14%;
+    width: 810px;
+  }
+  
+.breadcrumb li {
+    display: inline;/*横に並ぶように*/
+    list-style: none;
+    // font-weight: bold;/*太字*/
+}
+
+.breadcrumb li:after {/* >を表示*/
+content: '>';
+    padding: 0 0.2em;
+    color: #555;
+}
+
+.breadcrumb li:last-child:after {
+content: '';
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #333;/*色*/
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline;
+}
+
+//pagenation
+.nav-links{
+    padding:2em;
+    display:flex;
+    justify-content:center;
+    // background:#f3f3f3;
+    width: 810px;
+    // text-align: center;
+    margin: 0 auto;
+    margin-top: -103px;
+
+    a,span{
+        width:27px;
+        height:27px;
+        margin:9px;
+        line-height:27px;
+        text-align:center;
+        font-size: $font-size-ex-small;
+        font-weight:bold;
+        text-decoration:none;
+        background:#1A1A1A;
+        color: #F4D102;
+        // transition:.3s;
+    }
+    a:hover{
+        // background:gold;
+        // border-radius:100%;
+        // transform:rotate(360deg);
+    }
+    // .current{
+    //     background:gold;
+    //     border-radius:100%;
+    // }
+    // .dots{
+    //     background:none;
+    // }
+    .next {
+        background: transparent;
+        color: #1A1A1A;
+        border: 2px solid #1A1A1A;
+    }
+}
+
+.nav-links__single {
+    padding:2em;
+    display:flex;
+    justify-content: space-around;
+    // background:#f3f3f3;
+    width: 810px;
+    // text-align: center;
+    margin: 0 auto;
+    margin-top: -60px;
+
+    a,span{
+        width:27px;
+        height:27px;
+        // margin:9px;
+        // line-height:27px;
+        // text-align:center;
+        font-size: $font-size-ex-small;
+        // font-weight:bold;
+        text-decoration:none;
+        // background:#1A1A1A;
+        color: #333;
+        // transition:.3s;
+    }
+
+    p {
+        font-size: $font-size-ex-small;
+
+    }
+    
+    .prev {
+        text-align: left;
+        color: #333;
+
+        &::before {
+            position: absolute;
+            content: "<";
+            display: inline-block;
+            text-align: center;
+            width: 32px;
+            height: 32px;
+            background: #1A1A1A 0% 0% no-repeat padding-box;
+            color: #F1C201;
+            transform: translateX(-170%) translateY(8%);
+            padding-top: 8px;
+            border-radius: 50%;
+            box-sizing:border-box;
+        }
+    }
+    
+    .next {
+        text-align: left;
+        color: #333;
+
+
+        &::after {
+            position: absolute;
+            content: ">";
+            display: inline-block;
+            text-align: center;
+            width: 32px;
+            height: 32px;
+            background: #1A1A1A 0% 0% no-repeat padding-box;
+            color: #F1C201;
+            transform: translateX(70%) translateY(-38%);
+            // background-position: 78% 78%;
+            border-radius: 50%;
+            box-sizing:border-box;
+            padding-top: 8px;
+        }
+
+        p {
+            text-align: right;
+        }
+    }
+}
+
+.nav__sp__none {
+    @include mq('sm') {
+        display: none;
+    }
+}

@@ -1,0 +1,78 @@
+
+// 色
+$color-main: #3EA1D1; // ベース色
+// $color-active: #e81919; // アクティブ色
+$color-background-base: #fff; // 背景色
+$color-text-base: #333; // テキスト色
+$color-background-red: #C63205;
+$hover-opacity: 0.8; // 透過度
+
+
+/*=============================================================================================
+# font-size 
+============================================================================================= */  
+$font-size-title: 43px;
+$font-size-ex-large: 34px;
+$font-size-large: 22px;
+$font-size-medium: 18px;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-ex-small: 12px;
+
+// レイアウト幅
+// $layout-width-canvas: 1280px;
+$layout-width-inner: 1140px;
+// $inner: 1280px;
+
+//階層
+$layer: (
+	modal: 100, // モダール
+	drawer: 40, // ドロワー
+	floating: 30, // フローティングアイテム
+	header: 20, // ヘッダー
+	footer: 10, // フッター
+	default: 1,
+	top: 10,
+);
+
+
+// 余白
+// $padding-pc: 24px;
+// $padding-tab: 24px;
+// $padding-sp: 16px;
+
+
+// ヘッダー高さ
+$header-height-pc: 90px;
+$header-height-sp: 60px;
+
+// フォント
+@font-face {
+	font-family: "futura-pt-condensed";
+	src: url(../fonts/FuturaPTCondMedium.woff) format("woff");
+}
+
+$font-family-default: "ヒラギノ書ゴ", "メイリオ", sans-serif; // 標準フォント
+$font-family-title-english: "futura-pt-condensed", sans-serif; // 標準フォント
+// font-family: futura-pt-condensed, sans-serif;
+// $font-family-english: sans-serif;
+// $font-family-base: $font-family-default;
+// $font-size-base: 16px;
+// $font-weight-base: 400;
+// $line-height-base: 1.6;
+
+// ブレークポイント
+// $breakpoints: (
+// 	"sp": "(max-width: 767px)",
+// 	"tab-only": "(min-width: 768px) and (max-width: #{$layout-width-inner + $padding-pc * 2 - 1px})",
+// 	"tab": "(max-width: #{$layout-width-inner + $padding-pc * 2 - 1px})",
+// 	"pc": "(min-width: #{$layout-width-inner})",
+// );
+
+// メディアクエリー
+// @mixin mq($breakpoint: sp) {
+// 	@media #{map-get($breakpoints, $breakpoint)} {
+// 		@content;
+// 	}
+// }
+

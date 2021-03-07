@@ -1,0 +1,1170 @@
+
+@charset "utf-8";
+// @import "./css/_variable";
+@import "./_common";
+@import "./_variable";
+
+
+
+
+//common
+.wrapper {
+    // min-height: 100vh; //ブラウザの画面の高さ = 100vh
+    // position: relative;/*←相対位置*/
+    // padding-bottom: 80px;/*←footerの高さ*/
+    // box-sizing: border-box;/*←全て含めてmin-height:100vhに*/ //border-boxとcontent-boxの違いを説明できるようにしておくこと！！！
+}
+
+
+// .stretched-link::after{
+//     position:absolute;
+//     content:"";
+//     top:0;
+//     right:0;
+//     bottom:0;
+//     left:0;
+//     z-index:1;
+//     pointer-events:auto;
+//     background-color:rgba(0,0,0,0)
+// }
+
+//common end
+
+
+
+
+//header
+
+.header {
+    background: transparent;
+    // position: fixed; 不要か？
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: map-get($layer , "header");
+    height: $header-height-pc;
+
+    @include mq('sm') {
+        height: $header-height-sp;
+        width: 375px;
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+}
+
+
+.header__inner {
+    display: flex;
+    align-items: center; /* アイテムを中央付近にまとめる */
+    justify-content: center;
+    // padding-left: 40px;
+    // padding: 27px 40px;
+
+    @include mq('sm') {
+        padding: 0;
+    }
+}
+
+.header__nav {
+    // margin-left: auto;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        
+        @include mq('sm') {
+            display: block;
+        }
+    }
+    
+    li {
+        margin-right: 48px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+        
+        a {
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            color: $color-text-base;
+            display: block;
+            position: relative;
+            letter-spacing: 1.6px;
+            
+            &:hover {
+                color: $color-main;
+            }
+        }
+    }
+    
+    
+}
+//header end
+
+//main
+.main {
+    position: relative;
+    top: -60px;
+    color: white;
+    max-width: 100%;
+
+}
+
+
+
+//top
+.top {
+    // height: 100vh;
+    max-width: 100%;
+    width: 100%;
+    background-image: url(../img/ヒーローエリア画像.png);
+    background-size: 110%;
+    background-position: right center;
+    // overflow: hidden; 
+    // background-position-x: 139%;
+    // background-position-y: 140%;
+
+    // background-size: cover;
+    // background-position: center;
+    // background: transparent url(../img/ヒーローエリア画像@2x.png) 0% 0% no-repeat cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    // position: absolute; positionに影響があるため一度削除
+    // top: 90px;
+
+    @include mq('sm') {
+        background-size: 250%;
+    }
+}
+
+.top__inner {
+    width: $layout-width-inner;
+    max-width: 100%;
+    margin: 0 auto;
+    // padding: 0 40px;
+    height: inherit;
+
+    @include mq('sm') {
+        width: 375px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.top__title {
+    position: relative;
+    // display: inline-block;
+    // text-align: center;
+    height: 136px;
+    width: 920px;
+    // margin-top: 60px;
+    margin: 60px 110px;
+    top: 60px;
+
+    @include mq('sm') {
+        max-width: 100%;
+        margin: 0;
+        height: 50.5px;
+    }
+
+    .top__title__lead {
+        // font-size: 34.5px;
+        font-size: $font-size-medium;
+        letter-spacing: 8.5px;
+        padding-bottom: 19.5px;
+    }
+    .top__title__main {
+        // font-size: 81.5px;
+        font-size: $font-size-ex-large;
+        letter-spacing: 10.2px;
+    }
+    
+    img {
+        // margin-top: 60px;
+    }
+}
+
+.top__flex {
+    display: flex;
+    justify-content: space-around;
+
+    @include mq('sm') {
+        display: block;
+    }
+
+    .top__flex__img {
+        // padding-top: 181.6px;
+        margin-top: 181.6px;
+
+        @include mq('sm') {
+            margin: 0 auto;
+            margin-top: 124px;
+            width: 220px;
+            text-align: center;
+            display: block;
+        }
+    }
+
+}
+$lh: 22 / 14;
+.top__flex__detail {
+    // padding-top: 88.6px;
+    margin-top: 88.6px;
+    width: 340px;
+    height: 175.5px;
+    line-height: $lh;
+    // font-size: $font-size-small;
+    font-size: 14px;
+    // font-family: "futura-pt-condensed";
+
+    @include mq('sm') {
+        margin-top: 44px;
+    }
+}
+
+
+//top end
+
+
+
+
+//introduction
+.introduction {
+    color: #333;
+    position: relative; //背景に重ねた三角形の画像がレスポンシブ時にずれないよう設定 https://kamuiblog.com/position-absolute-responsive-zureru/
+    // top: 500px;
+    // z-index: 10;
+    
+    @include mq('sm') {
+        top: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.inner__introduction {
+    max-width: 100%;
+    width: 810px;
+    height: 350px;
+    padding: 0;
+    // margin-top: 26px;
+    padding-top: 26px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.29); //rgbaで指定することにより、背景のみ透過することができる(文字列は透過したくない場合) 0.29がopacity
+    // background-repeat: no-repeat;
+    // opacity: 0.29;
+
+    @include mq('sm') {
+        padding-top: 10px;
+        height: 500px;
+    }
+
+    //三角形に切り取った画像の設定
+    &::before {
+        position: absolute;
+        // content: url("../img/Layer -24.png");
+        content: "";
+        // display: block;
+        display: inline-block;
+        width: 230px;
+        height: 207px;
+        background-image: url("../img/Layer -24.png");
+        background-position: 78% 78%;
+        clip-path: polygon(100% 0, 0% 100%, 0 0); //三角形に画像加工
+        transform: translateX(-176%) translateY(-12%);
+        
+        @include mq('sm') {
+            width: 80px;
+            height: 72px;
+            // background-position: 78% 78%;
+            background-size: 130%;
+            transform: translateX(-206%) translateY(-14%);
+
+        }
+    }
+}
+
+.introduction-title {
+    font-size: $font-size-ex-large;
+    color: #301F1B;
+    margin-top: 6px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq('sm') {
+        font-size: $font-size-medium;
+        font-weight: 700;
+    }
+}
+
+$introduction__flex__lh: 21px / $font-size-ex-small;
+.introduction__flex {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    // flex: 0 1 30%;
+    font-size: $font-size-ex-small;
+    line-height: $introduction__flex__lh;
+
+    @include mq('sm') {
+        display: block;
+        font-size: $font-size-small;
+    }
+
+
+}
+
+.introduction__flex__box {
+    width: 360px;
+    height: 12.6em; //7em(行) * line-heightの1.8  表示したい行数 * line-height
+    overflow: hidden; //7行目以降は非表示にする
+    line-height: 1.8; //表示したい行数
+    // font-size: 1em; 親要素12pxで子要素12px = 1em
+
+    @include mq('sm') {
+        width: 330px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+//introduction end
+
+
+
+//news
+.news {
+    @include mq('sm') {
+        position: relative;
+        top: 100px;
+    }
+}
+
+.inner__news {
+    // margin: 0 auto;
+    max-width: 100%;
+    width: 810px;
+    text-align: center;
+    margin-bottom: 62px;
+}
+.btn__news {
+    top: -42px;
+
+    @include mq('sm') {
+        top: 0;
+    }
+}
+
+.news__contents {
+    width: 810px;
+
+    @include mq('sm') {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+}
+
+.news__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include mq('sm') {
+        display: block;
+    }
+}
+
+.news__item {
+    width: 250px;
+    height: 260px;
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 29px;
+
+    @include mq('sm') {
+        width: 340px;
+        height: 300px;
+        // padding-left: 15px;
+        // padding-right: 15px;
+    }
+}
+
+.news__media {
+    height: 140px;
+
+    @include mq('sm') {
+        width: 340px;
+        height: 200px;
+    }
+
+    &__box {
+        text-align: left;
+        height: 76px;
+        // margin-top: 14px;
+        // margin-left: 15px;
+        margin: 14px 15px;
+
+
+        &__single {
+            width: 100%;
+            height: 76px;
+            color: #FFF;
+            background-color: #1A1A1A;
+            text-align: left;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    &__single {
+        width: 810px;
+        height: 578px;
+    }
+}
+
+.news__image {
+    width: 250px;
+    height: 140px;
+    overflow: hidden;
+
+    @include mq('sm') {
+        width: 340px;
+        height: 200px;
+
+    }
+
+    &__single {
+        width: 810px;
+        height: 578px;
+    }
+    
+}
+
+.news__date {
+    color: #666;
+    font-size: $font-size-ex-small;
+
+    &__single {
+        display: inline-block;
+        color: #FFF;
+        margin-top: 13px;
+    }
+}
+
+.news__text {
+    line-height: 1.3125;
+
+    &__single {
+        font-size: $font-size-large + 4px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        // line-height: 0;
+    }
+}
+
+.news__items__wide {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    // flex-wrap: wrap;
+    @include mq('sm') {
+        display: none;
+        // visibility: hidden;
+
+    }
+}
+
+.news__item__wide {
+    display: flex;
+    background-color: #fff;
+    color: #333;
+    width: 390px;
+    height: 88px;
+
+    @include mq('sm') {
+        max-width: 100%;
+        display: block;
+    }
+    
+}
+
+.news__media__wide {
+    width: 156px;
+    height: 88px;
+
+    @include mq('sm') {
+    }
+}
+
+.news__media__details {
+    // margin-top: 14px;
+    // margin-bottom: 14px;
+    // margin-left: 17px;
+    // margin: 13px auto;
+    margin: auto auto;
+    text-align: left;
+    width: 202px;
+    height: 60px;
+
+}
+
+.news__text__wide {
+    // letter-spacing: 1.3125; //16px/21px
+    line-height: 1.3125;
+}
+
+.news__image__wide {
+    height: 88px;
+}
+//news end
+
+
+//story
+.story {
+    width: 100%;
+    height: 420px;
+    background-image: url(../img/長方形158@2x.png);//長方形 158@2x.png
+    background-size: 100%;
+    background-position: right 15%;
+    // overflow: hidden; 
+    // background-position-x: 139%;
+    // background-position-y: 140%;
+
+    // background-size: cover;
+    // background-position: center;
+    // background: transparent url(../img/ヒーローエリア画像@2x.png) 0% 0% no-repeat cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding-top: 26px !important;
+
+    @include mq('sm') {
+        margin-top: 140px;
+        background-size: 200%;
+    }
+
+    &__details {
+        position: relative;
+        top: 17px;
+        left: 60%;
+        width: 320px;
+        // text-align: right;
+        // line-height: 1.75;
+        font-size: $font-size-ex-small;
+        //10行だけ表示
+        height: 245px;
+
+        @include mq('sm') {
+            position: static;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        
+        &__box {
+            height: 17.5em; //em(行) * line-heightの1.75  表示したい行数 * line-height
+            overflow: hidden; //10行目以降は非表示にする
+            line-height: 1.75; //表示したい行数
+            
+        }
+
+    }
+}
+
+
+.inner__story {
+    max-width: 100%;
+    width: 810px;
+    // margin: 0 auto;
+
+    @include mq('sm') {
+        padding-top: 20px;
+    }
+}
+
+.btn__story {
+    top: 24px;
+}
+
+.btn__details__story {
+    left: 85%;
+    width: 116px;
+    height: 36px;
+    @extend .btn__details;
+    // width: 120px;
+    // height: 40px;
+    // left: 42.5%;
+
+    @include mq('sm') {
+        left: 36%;
+
+    }
+}
+
+//story end
+
+
+//comments
+.comments {
+    text-align: center;
+
+    &__lead {
+        display: inline-block;
+        margin-top: 26px;
+        // font-size: 24px; sizeが合わない為、一旦20pxで進める
+        font-size: 20px;
+        color: #301F1B;
+        line-height: 0.06185;
+        width: 606px;
+        height: 32px;
+        z-index: 1;
+
+        @include mq('sm') {
+            max-width: 100%;
+            font-size: $font-size-medium;
+            height: 48px;
+            line-height: 1;
+        }
+    }
+
+    &__box {
+        // position: relative;
+        max-width: 100%;
+        width: 810px;
+        height: 215px;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4)) ,url(../img/画像-1.png);
+        background-position: right center;
+        // background: linear-gradient(270deg, rgba(255, 0, 0, 0.4), rgba(0, 255, 0, 0.4)) ,url(../img/画像-1.png);
+        // background:  linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1)), url(../img/画像-1.png);
+        // mix-blend-mode: multiply;
+        background-color: #fff;
+        // z-index: 15;
+
+        @include mq('sm') {
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 148px;
+        }
+
+
+        
+        .comments__name {
+            position: relative;
+            // position: absolute;
+            // display: flex;
+            // z-index: 100;
+            padding-top: 44px;
+            max-width: 100%;
+            width: 390px;
+            height: 30px;
+            font-size: 26px;
+            color: #fff;
+            > span {
+                font-size: 0.75em;
+                // color: red;
+            }
+
+            @include mq('sm') {
+                font-size: $font-size-medium;
+                background-color: #333;
+                height: 48px;                
+                top: 147px;
+                padding-top: 10px;
+            }
+        }
+
+        .comments__details {
+            text-align: left;
+            margin-top: 40px;
+            margin-left: 14px;
+            width: 420px;
+            height: 83px;
+            font-size: $font-size-small;
+            z-index: 10;
+
+            @include mq('sm') {
+                max-width: 100%;
+                height: 150px;
+                position: relative;
+                margin-top: 30px;
+                margin-left: 0;
+                background-color: #333;
+                top: 107px;
+                padding-left: 5px;
+                padding-right: 5px;
+                line-height: 1.5;
+            }
+        }
+        // &__cover {
+        //     top: 0;
+        //     left: 0;
+        //     max-width: 100%;
+        //     width: 810px;
+        //     height: 215px;
+        //     mix-blend-mode: multiply;
+    
+        // }
+    }
+}
+
+.btn__details__comments {
+    top: -4px;
+    // right: 10%;
+    left: 40.5%;
+
+    @include mq('sm') {
+        left: 15%;
+    }
+}
+
+.inner__comments {
+    max-width: 100%;
+    width: 810px;
+}
+
+//comments end
+
+
+//cast
+
+.cast {
+    position: relative;
+    top: 230px;
+    height: 650px;
+    color: #333;
+    background-color: #FFFFFFE6;
+    background-position: right center;
+
+    @include mq('sm') {
+        height: 2200px;
+    }
+
+    &__wrapper {
+        position: relative;
+        top: -250px;
+
+        @include mq('sm') {
+            top: 0;
+        }
+    }
+    &__role {
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    &__flex__items {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 22px;
+
+        @include mq('sm') {
+            display: block;
+            // top: 500px;
+        }
+    }
+    
+    &__flex__item {
+        text-align: center;
+        width: 250px;
+        height: 680px;
+
+        @include mq('sm') {
+            margin: 0 auto;
+            width: 100%;
+        }
+    }
+    
+    &__icon {
+        margin: 0 auto;
+        text-align: center;
+        width: 220px;
+        height: 220px;
+        > img {
+            border-radius: 50%;   
+        }
+
+        @include mq('sm') {
+            width: 200px;
+            height: 200px;
+            // margin: 0 auto;
+        }
+    }
+    
+    &__name {
+        margin-top: 10px;
+        
+        &__sub {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: $font-size-ex-small;
+            color: #666666;
+        }
+    }
+
+    &__details {
+        width: 250px;
+        height: 326px;
+        margin-top: 45px;
+        color: #666;
+        text-align: left;
+        font-size: $font-size-ex-small;
+        // line-height: 0.57142; 12px / 21px だと幅が小さくなる
+        line-height: 1.57142;
+
+        //一番最後のflexアイテムのcast__detailsにあてるのは分かったが、どこに反映すれば良いのか分からない
+        //現状は
+        // &:last-of-type {
+        //     margin-top: 25px;
+        //     color: red;
+        // }
+
+        @include mq('sm') {
+            margin-left: 60px;
+        }
+    }
+
+    &__details2 {
+        width: 250px;
+        height: 326px;
+        margin-top: 18px;
+        color: #666;
+        text-align: left;
+        font-size: $font-size-ex-small;
+        line-height: 1.57142;
+
+        @include mq('sm') {
+            margin-left: 60px;
+        }
+    }
+}
+
+.innner__cast {
+    max-width: 100%;
+    width: 810px;
+}
+
+.btn__details__cast {
+    border: 5px solid #C63205;
+    background-color: transparent;
+    
+    a {
+        color: #C63205;
+    }
+}
+
+
+//cast end
+
+
+//schedule
+.schedule {
+    position: relative;
+    top: 220px;
+    color: #333;
+
+    @include mq('sm') {
+        top: 280px;
+    }
+
+    &__table {
+        padding-top: 26px;
+    }
+
+    &__flex {
+        // display: flex;
+        text-align: center;
+        margin-top: 23px;
+
+        @include mq('sm') {
+            font-size: $font-size-base;
+        }
+
+        
+        &__box {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 18px;
+            font-size: 20px;
+            color: #301F1B;
+
+            @include mq('sm') {
+                font-size: $font-size-base;
+            }
+
+            .schedule__status {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.schedule__table {
+    // text-align: center;
+    margin: 0 auto;
+    width: 801px;
+    max-width: 100%;
+    height: 325px;
+    background: rgba(255, 255, 255, 0.29); //rgbaで指定することにより、背景のみ透過することができる(文字列は透過したくない場合) 0.29がopacity
+}
+
+.inner__schedule {
+    max-width: 100%;
+    // text-align: center;
+}
+
+.btn__area {
+    text-align: center;
+    margin-top: 200px;
+
+    @include mq('sm') {
+        margin-top: 0;
+        padding-bottom: 100px;
+        position: relative;
+        top: 250px;
+    }
+}
+
+.btn__details__brown {
+    background: #603813;
+    width: 193px;
+    height: 60px;
+    font-size: 13px;
+    left: 0;
+    margin-right: 30px;
+
+    @include mq('sm') {
+        width: 160px;
+        height: 40px;
+        font-weight: 700;
+    }
+}
+
+.btn__details__red {
+    width: 193px;
+    height: 60px;
+    font-size: 13px;
+    left: 0;
+    // padding-top: 21.5px;
+    // padding-bottom: 21.5px;
+
+    @include mq('sm') {
+        width: 160px;
+        height: 40px;
+        font-weight: 700;
+    }
+}
+
+
+.table-wrap {
+    overflow-x: scroll;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+  }
+  .table th,
+  .table td {
+    border: 2px solid #eee;
+    padding: 4px 8px;
+  }
+
+
+//schedule end
+
+//footer 
+.footer {
+    /* footerの装飾 */
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    // position: absolute;/*←絶対位置*/
+    position: relative;
+    top: 220px;
+    // bottom: 0; /*下に固定*/ //下に隙間ができるのはなぜ？
+    background: #1A1A1A;
+    height: 80px;
+    color: #FFF;
+    // margin-top: -80px;
+    // top: 100px;
+    
+    //     @include mq('sm') {
+    //         // position: absolute;
+    //     }
+}
+
+
+//footer end
+
+
+
+// &::after {
+    //     position: absolute;
+    //     content: '\f105';
+    //     font-family: 'Font Awesome 5 Free';
+    //     font-weight: 900;
+    //     top: 50%;
+    //     right: .4em;
+    //     left: auto;
+    //     bottom: auto;
+    //     transform: translateY(-50%);
+    //   }
+    //   &:hover {
+    //       transition: all 0.5s ease 0s;
+    //       background: $color-main;
+          
+    //       a {
+    //           color: #fff;
+    //       }
+    //   }
+
+
+
+
+.drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
+    background-color: #FFF;
+}
+
+
+// news-archive
+.main__news {
+    top: 0;
+    height: 100%;
+}
+
+
+
+//top
+.top__innner__news {
+    height: 180px;
+    // width: $layout-width-inner;
+    max-width: 100%;
+    width: 810px;
+    margin: 0 auto;
+    // padding-left: 200px;
+    // padding-right: 200px;
+
+}
+
+.news__top {
+    display: flex;
+    justify-content: space-between;
+    width: 810px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.section__title__news {
+    margin-bottom: 28px;
+}
+
+.top__title__news {
+    top: 0;
+    margin: 0;
+    width: 460px;
+    margin-top: 58px;
+    // background-size: 50%;
+
+}
+.news__top__right {
+    width: 250px;
+    margin-top: 67px;
+}
+
+.top__flex__news {
+
+}
+//top end
+.breadcrumb__nav {
+    width: 810px;
+    margin: 0 auto;
+    font-size: $font-size-ex-small;
+}
+
+//news-archive schedule
+.schedule__news {
+    top: -40px;
+
+    &__single {
+        top: 0;
+    }
+}
+//news-archive schedule end
+
+
+// news-archive end
+
+//news-single 
+.news__single {
+    width: 810px;
+    // height: 1851px;
+    // margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    color: #333;
+    
+    &__title {
+        font-size: $font-size-large;
+        padding-top: 30px;
+        margin-bottom: 32px;
+        text-align: left;
+        font: normal normal normal 22px/26px "Hiragino Kaku Gothic ProN";
+    }
+
+    &__subtitle {
+        font-size: $font-size-medium;
+    }
+
+    &__article {
+        height: 1145px;
+        text-align: left;
+        font: normal normal normal 16px/26px "Hiragino Kaku Gothic ProN";
+        
+        >div {
+            margin-bottom: 34px;
+        }
+    }
+}
+
+//news-single end
+
+//story
+.main__story {
+    top: 0;
+}
+
+.story_top {
+    background-image: url(../img/長方形158@2x.png);
+    background-size: cover;
+    height: 635px;
+
+}
+
+.story__box {
+    display: flex;
+    justify-content: space-around;
+
+    &__left {
+        width: 390px;
+        height: 26px;
+        font-size: $font-size-large + 4px;
+    }
+
+    &__right {
+        width: 390px;
+        height: 213px;
+    }
+}
+
+.white {
+    color: #FFF;
+}
+
+//story end
